@@ -29,6 +29,7 @@
         "CURLOPT",
         "datacenter",
         "httponly",
-        "Packagist"
+        "Packagist",
+        "zipcode"
     ]
 }

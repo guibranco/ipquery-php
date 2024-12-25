@@ -24,14 +24,21 @@ class Location
     {
         $location = new self();
 
-        // Helper function to safely get string values
+        $jsonToCamelCase = static function (string $key): string {
+            $key = strtolower($key);
+            $key = preg_replace_callback('/_([a-z])/', function ($matches) {
+                return strtoupper($matches[1]);
+            }, $key);
+
+            return $key;
+        };
+
         $getString = static function (array $data, string $key): ?string {
             return isset($data[$key]) && (is_string($data[$key]) || is_numeric($data[$key]))
                 ? (string) $data[$key]
                 : null;
         };
 
-        // Helper function to safely get float values
         $getFloat = static function (array $data, string $key): ?float {
             if (!isset($data[$key])) {
                 return null;
@@ -39,14 +46,12 @@ class Location
             return is_numeric($data[$key]) ? (float) $data[$key] : null;
         };
 
-        // Map string fields
         $stringFields = ['country', 'country_code', 'city', 'state', 'zipcode', 'timezone', 'localtime'];
         foreach ($stringFields as $field) {
-            $property = str_replace('_', '', $field); // Handle special case for country_code
+            $property = $jsonToCamelCase($field);
             $location->$property = $getString($data, $field);
         }
 
-        // Map coordinate fields
         $location->latitude = $getFloat($data, 'latitude');
         $location->longitude = $getFloat($data, 'longitude');
 
