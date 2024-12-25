@@ -8,7 +8,7 @@ A lightweight and efficient PHP library for querying IP data from the [IpQuery A
 
 - Retrieve your public IP information.
 - Query detailed data for a single or multiple IP addresses.
-- Parse responses into strongly-typed PHP objects.
+- Parse responses into strongly typed PHP objects.
 - Supports multiple response formats (JSON, XML, YAML, and plain text).
 - Simple integration with pure PHP using cURL.
 
@@ -67,10 +67,10 @@ foreach ($multipleIpData as $ip) {
 
 The library parses JSON responses into the following class structure:
 
-### IpResponse
+### IpQueryResponse
 
 ```php
-class IpResponse {
+class IpQueryResponse {
     public string $ip;
     public Isp $isp;
     public Location $location;
