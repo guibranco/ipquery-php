@@ -16,7 +16,7 @@ class ClientTest extends TestCase
         $this->client = new Client();
     }
 
-    public function testgetMyIpData()
+    public function testGetMyIpData()
     {
         $response = $this->createMock(IpQueryResponse::class);
         $this->client = $this->getMockBuilder(Client::class)
@@ -89,10 +89,10 @@ class ClientTest extends TestCase
 
         $this->client->expects($this->once())
             ->method('makeRequest')
-            ->with('/invalid')
+            ->with('/127.0.0.0')
             ->will($this->throwException(new IpQueryException(404, 'Not Found')));
 
         $this->expectException(IpQueryException::class);
-        $this->client->getIpData('invalid');
+        $this->client->getIpData('127.0.0.0');
     }
 }
