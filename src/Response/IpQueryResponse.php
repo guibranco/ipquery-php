@@ -21,4 +21,18 @@ class IpQueryResponse
 
         return $response;
     }
+
+    public static function fromArray(array $data): array
+    {
+        $responses = [];
+        foreach ($data as $item) {
+            $response = new self();
+            $response->ip = $item['ip'];
+            $response->isp = isset($item['isp']) && is_array($item['isp']) ? Isp::fromArray($item['isp']) : null;
+            $response->location = isset($item['location']) && is_array($item['location']) ? Location::fromArray($item['location']) : null;
+            $response->risk = isset($item['risk']) && is_array($item['risk']) ? Risk::fromArray($item['risk']) : null;
+            $responses[] = $response;
+        }
+        return $responses;
+    }
 }
