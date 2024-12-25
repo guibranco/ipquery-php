@@ -1,20 +1,23 @@
 # 🌐📍 IpQuery API Client for PHP
 
-A lightweight and efficient PHP library for querying IP data from the [IpQuery API](https://ipquery.io/).
+A lightweight and efficient PHP library for querying IP data from the [IpQuery API](https://ipquery.io/).  
 Easily retrieve detailed information about IP addresses, including ISP details, geolocation, and risk analysis.
 
----
-
-## Features
-
-- Retrieve your public IP information.
-- Query detailed data for a single or multiple IP addresses.
-- Parse responses into strongly typed PHP objects.
-- Simple integration with pure PHP using cURL.
+[![Packagist Downloads](https://img.shields.io/packagist/dt/guibranco/ipquery-php)](https://packagist.org/packages/guibranco/ipquery-php)
+[![GitHub Downloads](https://img.shields.io/github/downloads/guibranco/ipquery-php/total)](https://github.com/guibranco/ipquery-php/releases)
 
 ---
 
-## Installation
+## Features ✨
+
+- Retrieve your public IP information with ease.
+- Query detailed data for single or multiple IP addresses.
+- Parse JSON responses into strongly-typed PHP objects.
+- Simple integration using pure PHP and cURL.
+
+---
+
+## Installation 📦
 
 You can install the library using Composer:
 
@@ -24,7 +27,7 @@ composer require guibranco/ipquery-php
 
 ---
 
-## Usage
+## Usage 🚀
 
 ### Get your public IP data
 
@@ -63,7 +66,7 @@ foreach ($multipleIpData as $ip) {
 
 ---
 
-## Response Mapping
+## Response Mapping 🗺️
 
 The library parses JSON responses into the following class structure:
 
@@ -119,25 +122,36 @@ class Risk {
 
 ---
 
-## Requirements
+## Requirements 🛠️
 
-- PHP 7.4+
+- PHP 7.4 or newer
 - cURL extension enabled
 
 ---
 
-## License
+## Running Tests 🧪
+
+This project uses [PhpUnit 11](https://phpunit.de/) for unit tests. To run the tests, execute:
+
+```bash
+./vendor/bin/phpunit
+```
+
+---
+
+## Contribution 🤝
+
+Contributions are welcome! Please read the [CONTRIBUTING.md](https://github.com/guibranco/ipquery-php/blob/main/CONTRIBUTING.md) file for details on the process.  
+Feel free to open issues or submit pull requests to improve the library.
+
+---
+
+## License 📜
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Contribution
+## Examples 📚
 
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the library.
-
----
-
-## Examples
-
-See the [examples/](https://github.com/guibranco/ipquery-php/tree/main/examples/) directory for more code examples.
+Explore the [examples/](https://github.com/guibranco/ipquery-php/tree/main/examples/) directory for more code samples and ideas.
