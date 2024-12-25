@@ -17,6 +17,10 @@ class Client implements IClient
 
     public function getIpData(string $ip): IpQueryResponse
     {
+        if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+            throw new IpQueryException(400, 'Invalid IP address format.');
+        }
+        
         $response = $this->makeRequest("/{$ip}");
         return IpQueryResponse::fromJson($response);
     }

@@ -48,6 +48,13 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(IpQueryResponse::class, $result);
     }
 
+    public function testGetIpDataThrowsExceptionOnInvalidIp()
+    {
+        $this->expectException(IpQueryException::class);
+        $this->expectExceptionMessage('Invalid IP address format.');
+        $this->client->getIpData('invalid-ip');
+    }
+
     public function testGetMultipleIpData()
     {
         $response = $this->createMock(IpQueryResponse::class);
