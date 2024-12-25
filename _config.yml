@@ -1,0 +1,4 @@
+theme: jekyll-theme-cayman
+title: 🌐📍 IpQuery API Client for PHP
+description: A lightweight and efficient PHP library for querying IP data from the IpQuery API.
+show_downloads: true
