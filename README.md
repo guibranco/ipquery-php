@@ -124,7 +124,7 @@ class Risk {
 
 ## Requirements 🛠️
 
-- PHP 7.4 or newer
+- PHP 8.2 or newer
 - cURL extension enabled
 
 ---

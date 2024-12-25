@@ -6,7 +6,7 @@ Thank you for your interest in contributing to **IpQuery (PHP)**! 😊 Your help
 
 ## Requirements ⚙️
 
--   PHP 7.4 or newer
+-   PHP 8.2 or newer
 -   cURL library
 -   Unit tests use **PHPUnit 11** (as of 12/2024)
 
