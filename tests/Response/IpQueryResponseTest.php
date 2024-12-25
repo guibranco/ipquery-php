@@ -39,5 +39,5 @@ class IpQueryResponseTest extends TestCase
         $this->assertEquals('Test City', $response->location->city);
         $this->assertInstanceOf(Risk::class, $response->risk);
         $this->assertEquals(1, $response->risk->riskScore);
-    }   
+    }
 }

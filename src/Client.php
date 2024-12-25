@@ -20,7 +20,7 @@ class Client implements IClient
         if (!filter_var($ip, FILTER_VALIDATE_IP)) {
             throw new IpQueryException(400, 'Invalid IP address format.');
         }
-        
+
         $response = $this->makeRequest("/{$ip}");
         return IpQueryResponse::fromJson($response);
     }
@@ -37,7 +37,7 @@ class Client implements IClient
 
         $decoded = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
         return array_map(
-            fn($ipData) => IpQueryResponse::fromArray($ipData),
+            fn ($ipData) => IpQueryResponse::fromArray($ipData),
             $decoded
         );
     }
@@ -71,4 +71,3 @@ class Client implements IClient
         return $response;
     }
 }
-
