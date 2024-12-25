@@ -5,7 +5,7 @@ namespace GuiBranco\IpQuery;
 use GuiBranco\IpQuery\Response\IpQueryResponse;
 use GuiBranco\IpQuery\IpQueryException;
 
-class Client implements IClient
+class IpQueryClient implements IIpQueryClient
 {
     private string $baseUrl = 'https://api.ipquery.io';
 

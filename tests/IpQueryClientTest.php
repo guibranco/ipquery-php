@@ -3,23 +3,23 @@
 namespace GuiBranco\IpQuery\Tests;
 
 use PHPUnit\Framework\TestCase;
-use GuiBranco\IpQuery\Client;
+use GuiBranco\IpQuery\IpQueryClient;
 use GuiBranco\IpQuery\Response\IpQueryResponse;
 use GuiBranco\IpQuery\IpQueryException;
 
-class ClientTest extends TestCase
+class IpQueryClientTest extends TestCase
 {
     private $client;
 
     protected function setUp(): void
     {
-        $this->client = new Client();
+        $this->client = new IpQueryClient();
     }
 
     public function testGetMyIpData()
     {
         $response = $this->createMock(IpQueryResponse::class);
-        $this->client = $this->getMockBuilder(Client::class)
+        $this->client = $this->getMockBuilder(IpQueryClient::class)
             ->onlyMethods(['makeRequest'])
             ->getMock();
 
@@ -35,7 +35,7 @@ class ClientTest extends TestCase
     public function testGetIpData()
     {
         $response = $this->createMock(IpQueryResponse::class);
-        $this->client = $this->getMockBuilder(Client::class)
+        $this->client = $this->getMockBuilder(IpQueryClient::class)
             ->onlyMethods(['makeRequest'])
             ->getMock();
 
@@ -58,7 +58,7 @@ class ClientTest extends TestCase
     public function testGetMultipleIpData()
     {
         $response = $this->createMock(IpQueryResponse::class);
-        $this->client = $this->getMockBuilder(Client::class)
+        $this->client = $this->getMockBuilder(IpQueryClient::class)
             ->onlyMethods(['makeRequest'])
             ->getMock();
 
@@ -83,7 +83,7 @@ class ClientTest extends TestCase
 
     public function testMakeRequestThrowsExceptionOnError()
     {
-        $this->client = $this->getMockBuilder(Client::class)
+        $this->client = $this->getMockBuilder(IpQueryClient::class)
             ->onlyMethods(['makeRequest'])
             ->getMock();
 

@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use GuiBranco\IpQuery\Client;
+use GuiBranco\IpQuery\IpQueryClient;
 
-$client = new Client();
+$client = new IpQueryClient();
 
 try {
     // Get my IP data

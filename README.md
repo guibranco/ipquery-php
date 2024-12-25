@@ -34,9 +34,9 @@ composer require guibranco/ipquery-php
 ```php
 require_once 'vendor/autoload.php';
 
-use GuiBranco\IpQuery\Client;
+use GuiBranco\IpQuery\IpQueryClient;
 
-$client = new Client();
+$client = new IpQueryClient();
 
 try {
     $ipQuery = $client->getMyIpData();
