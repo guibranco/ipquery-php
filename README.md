@@ -1,6 +1,7 @@
 # 🌐📍 IpQuery API Client for PHP
 
-A lightweight and efficient PHP library for querying IP data from the [IpQuery API](https://ipquery.io/). Easily retrieve detailed information about IP addresses, including ISP details, geolocation, and risk analysis. Supports multiple formats (JSON, XML, YAML, and plain text) and batch IP queries.
+A lightweight and efficient PHP library for querying IP data from the [IpQuery API](https://ipquery.io/).
+Easily retrieve detailed information about IP addresses, including ISP details, geolocation, and risk analysis.
 
 ---
 
@@ -9,7 +10,6 @@ A lightweight and efficient PHP library for querying IP data from the [IpQuery A
 - Retrieve your public IP information.
 - Query detailed data for a single or multiple IP addresses.
 - Parse responses into strongly typed PHP objects.
-- Supports multiple response formats (JSON, XML, YAML, and plain text).
 - Simple integration with pure PHP using cURL.
 
 ---
@@ -140,4 +140,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests to i
 
 ## Examples
 
-See the [examples/](examples/) directory for more code examples.
+See the [examples/](https://github.com/guibranco/ipquery-php/tree/main/examples/) directory for more code examples.
