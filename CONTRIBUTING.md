@@ -31,7 +31,7 @@ Have a great idea? 🌟
 
 Make sure to explain:
 - Why this feature is useful.
-- How it aligns with the library’s goals.
+- How does it align with the library’s goals?
 - Any alternative approaches you considered.
 
 ### 3. Contributing Code 🔧
@@ -81,7 +81,7 @@ Use a descriptive name (e.g., `fix/bug-name`, `feature/awesome-feature`).
 ---
 
 ## Code of Conduct 📚
-We are committed to fostering a welcoming and inclusive environment. Please review our [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing.
+We are committed to fostering a welcoming and inclusive environment. Please review our [Code of Conduct](https://github.com/guibranco/.github/blob/main/CODE_OF_CONDUCT.md) before contributing.
 
 ---
 
