@@ -9,8 +9,8 @@ class Location
     public ?string $city;
     public ?string $state;
     public ?string $zipcode;
-    public float $latitude;
-    public float $longitude;
+    public ?float $latitude;
+    public ?float $longitude;
     public ?string $timezone;
     public ?string $localtime;
 

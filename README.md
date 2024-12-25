@@ -36,7 +36,7 @@ use GuiBranco\IpQuery\Client;
 $client = new Client();
 
 try {
-    $ipQuery = $client->getMyIp();
+    $ipQuery = $client->getMyIpData();
     echo "My IP: {$ipQuery->ip}" . PHP_EOL;
     echo "ISP: {$ipQuery->isp->org}" . PHP_EOL;
 } catch (Exception $e) {

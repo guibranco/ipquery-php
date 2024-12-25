@@ -9,14 +9,14 @@ use GuiBranco\IpQuery\IpQueryException;
 
 class ClientTest extends TestCase
 {
-    private Client $client;
+    private $client;
 
     protected function setUp(): void
     {
         $this->client = new Client();
     }
 
-    public function testGetMyIp()
+    public function testgetMyIpData()
     {
         $response = $this->createMock(IpQueryResponse::class);
         $this->client = $this->getMockBuilder(Client::class)
@@ -28,7 +28,7 @@ class ClientTest extends TestCase
             ->with('/')
             ->willReturn('{"ip":"127.0.0.1"}');
 
-        $result = $this->client->getMyIp();
+        $result = $this->client->getMyIpData();
         $this->assertInstanceOf(IpQueryResponse::class, $result);
     }
 
@@ -65,6 +65,13 @@ class ClientTest extends TestCase
         $this->assertCount(2, $result);
         $this->assertInstanceOf(IpQueryResponse::class, $result[0]);
         $this->assertInstanceOf(IpQueryResponse::class, $result[1]);
+    }
+
+    public function testGetMultipleIpDataThrowsExceptionOnEmptyList()
+    {
+        $this->expectException(IpQueryException::class);
+        $this->expectExceptionMessage('Empty IP list');
+        $this->client->getMultipleIpData([]);
     }
 
     public function testMakeRequestThrowsExceptionOnError()

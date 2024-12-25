@@ -9,7 +9,7 @@ class Client implements IClient
 {
     private string $baseUrl = 'https://api.ipquery.io';
 
-    public function getMyIp(): IpQueryResponse
+    public function getMyIpData(): IpQueryResponse
     {
         $response = $this->makeRequest('/');
         return IpQueryResponse::fromJson($response);
@@ -23,6 +23,11 @@ class Client implements IClient
 
     public function getMultipleIpData(array $ips): array
     {
+
+        if (empty($ips)) {
+            throw new IpQueryException(400, 'Empty IP list');
+        }
+
         $ipList = implode(',', $ips);
         $response = $this->makeRequest("/{$ipList}");
 

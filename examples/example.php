@@ -8,7 +8,7 @@ $client = new Client();
 
 try {
     // Get my IP data
-    $myIpData = $client->getMyIp();
+    $myIpData = $client->getMyIpData();
     echo "My IP: {$myIpData->ip}" . PHP_EOL;
     echo "ISP: {$myIpData->isp->org}" . PHP_EOL;
 
