@@ -1,0 +1,51 @@
+name: Codecov
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    codecov:
+        name: Codecov
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+
+            - name: Cache Composer dependencies
+              uses: actions/cache@v4
+              with:
+                  path: /tmp/composer-cache
+                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+            - name: Install dependencies
+              uses: php-actions/composer@v6
+
+            - name: PHPUnit Tests
+              uses: php-actions/phpunit@v4
+              with:
+                  version: 11
+                  php_version: 8.3
+                  php_extensions: xdebug shmop curl pdo pdo_mysql
+                  coverage_cobertura: coverage.xml
+                  bootstrap: vendor/autoload.php
+                  configuration: tests/phpunit.xml
+                  test_suffix: Test.php
+                  args: --coverage-filter src tests
+              env:
+                  XDEBUG_MODE: coverage
+
+            - name: Fix code coverage paths
+              run: |
+                  sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.xml
+
+            - name: Upload coverage reports to Codecov
+              uses: codecov/codecov-action@v5.1.1
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  slug: guibranco/Pancake

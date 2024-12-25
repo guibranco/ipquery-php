@@ -1,0 +1,19 @@
+name: PHP Linting
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    php-lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Check PHP Lint
+              uses: fxpw/PHP-Lint-php8.3@master
