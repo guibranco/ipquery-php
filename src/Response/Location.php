@@ -22,8 +22,8 @@ class Location
         $location->city = isset($data['city']) && is_string($data['city']) ? $data['city'] : null;
         $location->state = isset($data['state']) && is_string($data['state']) ? $data['state'] : null;
         $location->zipcode = isset($data['zipcode']) && is_string($data['zipcode']) ? $data['zipcode'] : null;
-        $location->latitude = isset($data['latitude']) && is_float($data['latitude']) ? $data['latitude'] : 0.0;
-        $location->longitude = isset($data['longitude']) && is_float($data['longitude']) ? $data['longitude'] : 0.0;
+        $location->latitude = isset($data['latitude']) && is_float($data['latitude']) ? $data['latitude'] : null;
+        $location->longitude = isset($data['longitude']) && is_float($data['longitude']) ? $data['longitude'] : null;
         $location->timezone = isset($data['timezone']) && is_string($data['timezone']) ? $data['timezone'] : null;
         $location->localtime = isset($data['localtime']) && is_string($data['localtime']) ? $data['localtime'] : null;
 
