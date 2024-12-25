@@ -1,0 +1,49 @@
+name: Deep Source
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    DeepSource:
+        name: Deep Source Coverage report
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+
+            - name: Install DeepSource scanner
+              run: curl https://deepsource.io/cli | sh
+
+            - name: Cache Composer dependencies
+              uses: actions/cache@v4
+              with:
+                  path: /tmp/composer-cache
+                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+            - name: Install dependencies
+              uses: php-actions/composer@v6
+
+            - name: PHPUnit Tests
+              uses: php-actions/phpunit@v4
+              with:
+                  version: 11
+                  php_version: 8.3
+                  php_extensions: xdebug shmop curl pdo pdo_mysql
+                  coverage_cobertura: coverage.xml
+                  bootstrap: vendor/autoload.php
+                  configuration: tests/phpunit.xml
+                  test_suffix: Test.php
+                  args: --coverage-filter src tests
+              env:
+                  XDEBUG_MODE: coverage
+
+            - name: Build and analyze
+              env:
+                  DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
+              run: ./bin/deepsource report --analyzer test-coverage --key php --value-file coverage.xml

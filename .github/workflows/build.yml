@@ -1,0 +1,42 @@
+name: Build
+
+on:
+    pull_request:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    checks: write
+    pull-requests: write
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Cache Composer dependencies
+              uses: actions/cache@v4
+              with:
+                  path: /tmp/composer-cache
+                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+            - name: Install dependencies
+              uses: php-actions/composer@v6
+
+            - name: PHPUnit Tests
+              uses: php-actions/phpunit@v4
+              with:
+                  version: 11
+                  php_version: 8.3
+                  php_extensions: xdebug shmop curl pdo pdo_mysql
+                  coverage_cobertura: coverage.xml
+                  bootstrap: vendor/autoload.php
+                  configuration: tests/phpunit.xml
+                  test_suffix: Test.php
+                  args: --coverage-filter src tests
+              env:
+                  XDEBUG_MODE: coverage

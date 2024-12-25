@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd" displayDetailsOnTestsThatTriggerDeprecations="true" displayDetailsOnTestsThatTriggerErrors="true" displayDetailsOnTestsThatTriggerNotices="true" displayDetailsOnTestsThatTriggerWarnings="true">
+	<coverage>
+		<report>
+			<html outputDirectory="../coverage" lowUpperBound="80" highLowerBound="90"/>
+			<text outputFile="php://stdout" showUncoveredFiles="true"/>
+		</report>
+	</coverage>
+	<testsuites>
+		<testsuite name="Unit Tests">
+			<directory suffix="Test.php">./</directory>
+		</testsuite>
+	</testsuites>
+	<logging/>
+	<source>
+		<include>
+			<directory suffix=".php">../src</directory>
+		</include>
+	</source>
+</phpunit>

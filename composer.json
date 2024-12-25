@@ -1,0 +1,30 @@
+{
+    "name": "guibranco/ipquery-php",
+    "description": "A lightweight and efficient PHP library for querying IP data from the IpQuery API.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GuiBranco\\IpQuery\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GuiBranco\\IpQuery\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guilherme Branco Stracini",
+            "email": "guilherme@guilhermebranco.com.br"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "ext-curl": "*"
+    }
+}
