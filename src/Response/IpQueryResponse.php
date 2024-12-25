@@ -11,8 +11,7 @@ class IpQueryResponse
 
     public static function fromJson(string $json): self
     {
-        $data = json_decode($json, true);
-
+        $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
         return self::fromArray($data);
     }
 

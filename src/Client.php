@@ -31,7 +31,7 @@ class Client implements IClient
         $ipList = implode(',', $ips);
         $response = $this->makeRequest("/{$ipList}");
 
-        $decoded = json_decode($response, true);
+        $decoded = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
         return array_map(
             fn($ipData) => IpQueryResponse::fromArray($ipData),
             $decoded
