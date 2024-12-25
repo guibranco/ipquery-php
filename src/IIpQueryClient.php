@@ -4,7 +4,7 @@ namespace GuiBranco\IpQuery;
 
 use GuiBranco\IpQuery\Response\IpQueryResponse;
 
-interface IClient
+interface IIpQueryClient
 {
     public function getMyIpData(): IpQueryResponse;
     public function getIpData(string $ip): IpQueryResponse;

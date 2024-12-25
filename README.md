@@ -34,9 +34,9 @@ composer require guibranco/ipquery-php
 ```php
 require_once 'vendor/autoload.php';
 
-use GuiBranco\IpQuery\Client;
+use GuiBranco\IpQuery\IpQueryClient;
 
-$client = new Client();
+$client = new IpQueryClient();
 
 try {
     $ipQuery = $client->getMyIpData();
@@ -124,7 +124,7 @@ class Risk {
 
 ## Requirements 🛠️
 
-- PHP 7.4 or newer
+- PHP 8.2 or newer
 - cURL extension enabled
 
 ---
