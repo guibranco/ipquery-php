@@ -39,6 +39,8 @@ class Client implements IClient
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPGET, true);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);  // 5 second connection timeout
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);        // 30 second timeout for the whole request
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
