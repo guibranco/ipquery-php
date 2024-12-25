@@ -41,22 +41,29 @@ class Client implements IClient
     protected function makeRequest(string $endpoint): string
     {
         $url = $this->baseUrl . $endpoint . '?format=json';
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPGET, true);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        $curl = curl_init($url);
 
-        $response = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPGET, true);
+
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
+
+        curl_setopt($curl, CURLOPT_USERAGENT, 'IpQuery PHP Client/1.0 (+https://github.com/guibranco/ipquery-php)');
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if ($response === false || $httpCode !== 200) {
-            $error = curl_error($ch);
-            curl_close($ch);
+            $error = curl_error($curl);
+            curl_close($curl);
             throw new IpQueryException($httpCode, $error);
         }
 
-        curl_close($ch);
+        curl_close($curl);
         return $response;
     }
 }
