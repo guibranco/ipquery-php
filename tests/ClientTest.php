@@ -58,7 +58,7 @@ class ClientTest extends TestCase
         $this->client->expects($this->once())
             ->method('makeRequest')
             ->with('/127.0.0.1,192.168.0.1')
-            ->willReturn('[{"ip":"127.0.0.1", "isp":{}, "location":{}, "risk":{}},{"ip":"192.168.0.1", "isp":{}, "location":{}, "risk":{}}]');
+            ->willReturn('[{"ip":"127.0.0.1"},{"ip":"192.168.0.1"}]');
 
         $result = $this->client->getMultipleIpData(['127.0.0.1', '192.168.0.1']);
         $this->assertIsArray($result);
