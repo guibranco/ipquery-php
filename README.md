@@ -155,3 +155,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## Examples 📚
 
 Explore the [examples/](https://github.com/guibranco/ipquery-php/tree/main/examples/) directory for more code samples and ideas.
+Pixeebot Activity Dashboard verified on 2025-02-03.
