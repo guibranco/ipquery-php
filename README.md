@@ -160,3 +160,4 @@ Explore the [examples/](https://github.com/guibranco/ipquery-php/tree/main/examp
 This repository integrates with several code scanning tools to ensure code quality.
 Recommended tools include SonarCloud, SonarQube, CodeQL, and Semgrep.
 Please refer to the respective documentation for configuration details.
+Additionally, GitHub Advanced Security is configured to run code scanning and provide proactive alerts.
