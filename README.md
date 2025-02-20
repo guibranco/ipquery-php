@@ -155,3 +155,8 @@ This project is licensed under the [MIT License](LICENSE).
 ## Examples 📚
 
 Explore the [examples/](https://github.com/guibranco/ipquery-php/tree/main/examples/) directory for more code samples and ideas.
+## Code Scanning Tools Integration
+
+This repository integrates with several code scanning tools to ensure code quality.
+Recommended tools include SonarCloud, SonarQube, CodeQL, and Semgrep.
+Please refer to the respective documentation for configuration details.
