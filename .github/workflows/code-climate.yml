@@ -38,6 +38,7 @@ jobs:
                   php_extensions: xdebug shmop curl pdo pdo_mysql
                   coverage_clover: coverage.xml
                   bootstrap: vendor/autoload.php
+                  configuration: tests/phpunit.xml
                   test_suffix: Test.php
                   args: --coverage-filter src tests
               env:
