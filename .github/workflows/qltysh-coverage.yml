@@ -1,4 +1,4 @@
-name: QLTY.sh
+name: QLTY.sh Coverage
 
 on:
     push:
