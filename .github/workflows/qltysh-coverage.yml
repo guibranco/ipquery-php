@@ -1,4 +1,4 @@
-name: Code Climate
+name: QLTY.sh Coverage
 
 on:
     push:
@@ -12,8 +12,8 @@ permissions:
     pull-requests: write
 
 jobs:
-    codeclimate:
-        name: CodeClimate
+    qltysh:
+        name: QLTY.sh
         runs-on: ubuntu-latest
 
         steps:
@@ -45,14 +45,10 @@ jobs:
                   XDEBUG_MODE: coverage
 
             - name: Fix code coverage paths
-              run: |
-                  sed -i 's@'"$GITHUB_WORKSPACE"'@/github/workspace/@g' coverage.xml
+              run: sed -i 's@'"$GITHUB_WORKSPACE"'@/github/workspace/@g' coverage.xml
 
-            - name: Test & publish code coverage
-              uses: paambaati/codeclimate-action@v9.0.0
-              env:
-                  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-              with:
-                  prefix: /app
-                  coverageLocations: |
-                      coverage.xml:clover
+            - name: Upload coverage report to QLTY.sh
+              uses: qltysh/qlty-action/coverage@v1
+                with:
+                  oidc: true
+                  files: coverage..xml
