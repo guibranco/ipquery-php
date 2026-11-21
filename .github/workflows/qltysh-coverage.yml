@@ -10,6 +10,7 @@ on:
 permissions:
     contents: read
     pull-requests: write
+    id-token: write
 
 jobs:
     qltysh:
@@ -29,6 +30,8 @@ jobs:
 
             - name: Install dependencies
               uses: php-actions/composer@v6
+              with:
+                  php_extensions: mbstring
 
             - name: PHPUnit Tests
               uses: php-actions/phpunit@v4
@@ -49,6 +52,6 @@ jobs:
 
             - name: Upload coverage report to QLTY.sh
               uses: qltysh/qlty-action/coverage@v1
-                with:
+              with:
                   oidc: true
-                  files: coverage..xml
+                  files: coverage.xml

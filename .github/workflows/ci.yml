@@ -38,6 +38,8 @@ jobs:
 
             - name: Install dependencies
               uses: php-actions/composer@v6
+              with:
+                  php_extensions: mbstring
 
             - name: PHPUnit Tests
               uses: php-actions/phpunit@v4
